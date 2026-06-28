@@ -533,7 +533,7 @@ Category: "${selectedCategory?.label}"`
  
       {/* Navbar */}
       <nav style={{ ...s.nav, background: darkMode ? 'rgba(8,12,20,0.95)' : 'rgba(248,250,252,0.95)', borderBottom: `1px solid ${borderColor}` }}>
-        <span style={s.logo}>🏙️ CivicPulse AI</span>
+        <span style={s.logo}>🏙️ Adi Seva</span>
         <div style={s.navRight}>
           <span style={{ ...s.emailText, color: darkMode ? '#64748b' : '#94a3b8' }}>{user.email}</span>
           <button style={{ ...s.toggleBtn, borderColor, color: darkMode ? '#94a3b8' : '#64748b' }} onClick={() => setDarkMode(!darkMode)}>
