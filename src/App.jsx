@@ -38,8 +38,8 @@ function getNextLevel(xp) {
   return null
 }
 
-// ===================== LUX - MAINE COON CAT SVG =====================
-function LuxSVG({ mood = 'idle', level = 1, sparkle = false }) {
+// ===================== KURO - BLACK MAINE COON CAT SVG =====================
+function KuroSVG({ mood = 'idle', level = 1, sparkle = false }) {
   const accessories = {
     bow: level >= 2,
     headset: level >= 3,
@@ -48,120 +48,214 @@ function LuxSVG({ mood = 'idle', level = 1, sparkle = false }) {
   }
 
   const eyes = {
-    idle: <><ellipse cx="36" cy="52" rx="5" ry="4" fill="#1a1a2e"/><ellipse cx="64" cy="52" rx="5" ry="4" fill="#1a1a2e"/><ellipse cx="37" cy="51" rx="1.5" ry="1.5" fill="white"/><ellipse cx="65" cy="51" rx="1.5" ry="1.5" fill="white"/></>,
-    investigate: <><ellipse cx="36" cy="52" rx="5" ry="3" fill="#1a1a2e"/><ellipse cx="64" cy="52" rx="5" ry="3" fill="#1a1a2e"/><ellipse cx="37" cy="51" rx="1.5" ry="1" fill="white"/><ellipse cx="65" cy="51" rx="1.5" ry="1" fill="white"/><line x1="28" y1="46" x2="44" y2="48" stroke="#4a3000" strokeWidth="2.5" strokeLinecap="round"/><line x1="56" y1="48" x2="72" y2="46" stroke="#4a3000" strokeWidth="2.5" strokeLinecap="round"/></>,
-    clumsy: <><circle cx="36" cy="52" r="6" fill="#1a1a2e"/><circle cx="64" cy="52" r="6" fill="#1a1a2e"/><ellipse cx="38" cy="50" rx="2" ry="2" fill="white"/><ellipse cx="66" cy="50" rx="2" ry="2" fill="white"/><line x1="28" y1="48" x2="44" y2="50" stroke="#4a3000" strokeWidth="2" strokeLinecap="round"/><line x1="56" y1="50" x2="72" y2="48" stroke="#4a3000" strokeWidth="2" strokeLinecap="round"/></>,
-    victory: <><path d="M31 52 Q36 46 41 52" stroke="#1a1a2e" strokeWidth="2.5" fill="none" strokeLinecap="round"/><path d="M59 52 Q64 46 69 52" stroke="#1a1a2e" strokeWidth="2.5" fill="none" strokeLinecap="round"/><ellipse cx="38" cy="50" rx="1.5" ry="1" fill="#1a1a2e"/><ellipse cx="66" cy="50" rx="1.5" ry="1" fill="#1a1a2e"/></>,
+    idle: (
+      <>
+        {/* Dual colored eyes: outer gold ring, inner purple */}
+        <ellipse cx="36" cy="52" rx="6" ry="5.5" fill="#f5a623"/>
+        <ellipse cx="64" cy="52" rx="6" ry="5.5" fill="#f5a623"/>
+        <ellipse cx="36" cy="52" rx="4" ry="4" fill="#7c3aed"/>
+        <ellipse cx="64" cy="52" rx="4" ry="4" fill="#7c3aed"/>
+        <ellipse cx="36" cy="52" rx="2" ry="2.5" fill="#1a0a2e"/>
+        <ellipse cx="64" cy="52" rx="2" ry="2.5" fill="#1a0a2e"/>
+        <ellipse cx="35" cy="51" rx="1" ry="1" fill="white" opacity="0.9"/>
+        <ellipse cx="63" cy="51" rx="1" ry="1" fill="white" opacity="0.9"/>
+        {/* Gold shimmer ring */}
+        <ellipse cx="36" cy="52" rx="6" ry="5.5" fill="none" stroke="#ffd700" strokeWidth="0.5" opacity="0.6"/>
+        <ellipse cx="64" cy="52" rx="6" ry="5.5" fill="none" stroke="#ffd700" strokeWidth="0.5" opacity="0.6"/>
+      </>
+    ),
+    investigate: (
+      <>
+        <ellipse cx="36" cy="52" rx="6" ry="4" fill="#f5a623"/>
+        <ellipse cx="64" cy="52" rx="6" ry="4" fill="#f5a623"/>
+        <ellipse cx="36" cy="52" rx="4" ry="2.5" fill="#7c3aed"/>
+        <ellipse cx="64" cy="52" rx="4" ry="2.5" fill="#7c3aed"/>
+        <ellipse cx="36" cy="52" rx="1.5" ry="1.5" fill="#1a0a2e"/>
+        <ellipse cx="64" cy="52" rx="1.5" ry="1.5" fill="#1a0a2e"/>
+        <ellipse cx="35" cy="51" rx="0.8" ry="0.8" fill="white" opacity="0.9"/>
+        <ellipse cx="63" cy="51" rx="0.8" ry="0.8" fill="white" opacity="0.9"/>
+        {/* Furrowed brows */}
+        <line x1="28" y1="44" x2="44" y2="47" stroke="#2d1b69" strokeWidth="2.5" strokeLinecap="round"/>
+        <line x1="56" y1="47" x2="72" y2="44" stroke="#2d1b69" strokeWidth="2.5" strokeLinecap="round"/>
+      </>
+    ),
+    clumsy: (
+      <>
+        <ellipse cx="36" cy="52" rx="7" ry="7" fill="#f5a623"/>
+        <ellipse cx="64" cy="52" rx="7" ry="7" fill="#f5a623"/>
+        <ellipse cx="36" cy="52" rx="5" ry="5" fill="#7c3aed"/>
+        <ellipse cx="64" cy="52" rx="5" ry="5" fill="#7c3aed"/>
+        <ellipse cx="36" cy="52" rx="3" ry="3.5" fill="#1a0a2e"/>
+        <ellipse cx="64" cy="52" rx="3" ry="3.5" fill="#1a0a2e"/>
+        <ellipse cx="34.5" cy="50.5" rx="1.2" ry="1.2" fill="white" opacity="0.9"/>
+        <ellipse cx="62.5" cy="50.5" rx="1.2" ry="1.2" fill="white" opacity="0.9"/>
+      </>
+    ),
+    victory: (
+      <>
+        {/* Happy curved eyes */}
+        <path d="M30 52 Q36 45 42 52" stroke="#f5a623" strokeWidth="2.5" fill="#f5a623" opacity="0.3"/>
+        <path d="M30 52 Q36 45 42 52" stroke="#f5a623" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+        <path d="M58 52 Q64 45 70 52" stroke="#f5a623" strokeWidth="2.5" fill="#f5a623" opacity="0.3"/>
+        <path d="M58 52 Q64 45 70 52" stroke="#f5a623" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+        {/* Sparkle in eyes */}
+        <text x="36" y="53" fontSize="8" textAnchor="middle" fill="#ffd700">✦</text>
+        <text x="64" y="53" fontSize="8" textAnchor="middle" fill="#ffd700">✦</text>
+      </>
+    ),
   }
 
   const mouth = {
-    idle: <path d="M45 63 Q50 66 55 63" stroke="#c47a5a" strokeWidth="2" fill="none" strokeLinecap="round"/>,
-    investigate: <path d="M45 64 Q50 62 55 64" stroke="#c47a5a" strokeWidth="2" fill="none" strokeLinecap="round"/>,
-    clumsy: <><path d="M44 65 Q50 70 56 65" stroke="#c47a5a" strokeWidth="2" fill="none" strokeLinecap="round"/><ellipse cx="50" cy="67" rx="4" ry="2" fill="#e8a090" opacity="0.5"/></>,
-    victory: <path d="M43 63 Q50 70 57 63" stroke="#c47a5a" strokeWidth="2.5" fill="none" strokeLinecap="round"/>,
+    idle: <path d="M46 63 Q50 67 54 63" stroke="#9d4e6f" strokeWidth="1.8" fill="none" strokeLinecap="round"/>,
+    investigate: <path d="M46 64 Q50 61 54 64" stroke="#9d4e6f" strokeWidth="1.8" fill="none" strokeLinecap="round"/>,
+    clumsy: <><path d="M44 65 Q50 71 56 65" stroke="#9d4e6f" strokeWidth="2" fill="none" strokeLinecap="round"/><ellipse cx="50" cy="68" rx="4" ry="2" fill="#c46e8a" opacity="0.5"/></>,
+    victory: <path d="M43 63 Q50 70 57 63" stroke="#9d4e6f" strokeWidth="2.5" fill="none" strokeLinecap="round"/>,
   }
 
   const bodyAnim = {
     idle: '',
-    investigate: 'luxInvestigate',
-    clumsy: 'luxClumsy',
-    victory: 'luxVictory',
+    investigate: 'kuroInvestigate',
+    clumsy: 'kuroClumsy',
+    victory: 'kuroVictory',
   }
 
   return (
     <div style={{ position: 'relative', display: 'inline-block' }}>
       <style>{`
-        @keyframes luxInvestigate { 0%,100%{transform:rotate(-5deg) translateY(0)} 50%{transform:rotate(5deg) translateY(-8px)} }
-        @keyframes luxClumsy { 0%{transform:rotate(0deg)} 20%{transform:rotate(-15deg) translateX(-10px)} 40%{transform:rotate(15deg) translateX(10px)} 60%{transform:rotate(-8deg)} 80%{transform:rotate(8deg)} 100%{transform:rotate(0deg)} }
-        @keyframes luxVictory { 0%,100%{transform:translateY(0) scale(1)} 25%{transform:translateY(-15px) scale(1.05)} 50%{transform:translateY(-5px) scale(1.02)} 75%{transform:translateY(-12px) scale(1.04)} }
-        @keyframes sparkleFloat { 0%{transform:translate(0,0) scale(0);opacity:1} 100%{transform:translate(var(--tx),var(--ty)) scale(1);opacity:0} }
-        @keyframes tailWag { 0%,100%{transform:rotate(0deg)} 50%{transform:rotate(20deg)} }
-        @keyframes earTwitch { 0%,90%,100%{transform:rotate(0deg)} 95%{transform:rotate(-10deg)} }
+        @keyframes kuroInvestigate { 0%,100%{transform:rotate(-4deg) translateY(0)} 50%{transform:rotate(4deg) translateY(-10px)} }
+        @keyframes kuroClumsy { 0%{transform:rotate(0deg)} 20%{transform:rotate(-18deg) translateX(-12px)} 40%{transform:rotate(18deg) translateX(12px)} 60%{transform:rotate(-8deg)} 80%{transform:rotate(8deg)} 100%{transform:rotate(0deg)} }
+        @keyframes kuroVictory { 0%,100%{transform:translateY(0) scale(1)} 25%{transform:translateY(-18px) scale(1.06)} 50%{transform:translateY(-6px) scale(1.02)} 75%{transform:translateY(-14px) scale(1.05)} }
+        @keyframes tailWagKuro { 0%,100%{transform:rotate(0deg)} 50%{transform:rotate(25deg)} }
+        @keyframes earTwitchKuro { 0%,88%,100%{transform:rotate(0deg)} 94%{transform:rotate(-12deg)} }
+        @keyframes furGlow { 0%,100%{filter:drop-shadow(0 0 4px #7c3aed44)} 50%{filter:drop-shadow(0 0 10px #7c3aed88)} }
+        @keyframes sparkleFloat { 0%{transform:translate(0,0) scale(0);opacity:1} 100%{transform:translate(var(--tx),var(--ty)) scale(1.2);opacity:0} }
       `}</style>
 
-      <svg width="120" height="160" viewBox="0 0 100 160" style={{ animation: bodyAnim[mood] ? `${bodyAnim[mood]} 1s ease-in-out infinite` : '', filter: accessories.glow ? 'drop-shadow(0 0 12px #22d3ee)' : '' }}>
+      <svg width="120" height="160" viewBox="0 0 100 160"
+        style={{
+          animation: bodyAnim[mood] ? `${bodyAnim[mood]} 1s ease-in-out infinite` : 'furGlow 3s ease-in-out infinite',
+          filter: accessories.glow ? 'drop-shadow(0 0 16px #7c3aed)' : ''
+        }}>
+
         {/* Cape */}
-        {accessories.cape && <path d="M25 90 Q10 120 20 145 Q50 155 80 145 Q90 120 75 90" fill="#6d28d9" opacity="0.9"/>}
-        
-        {/* Fluffy tail */}
-        <path d="M65 130 Q90 120 95 100 Q100 80 85 75" stroke="#d4813a" strokeWidth="12" fill="none" strokeLinecap="round" style={{ animation: 'tailWag 2s ease-in-out infinite', transformOrigin: '65px 130px' }}/>
-        <path d="M65 130 Q90 120 95 100 Q100 80 85 75" stroke="#f4a460" strokeWidth="7" fill="none" strokeLinecap="round" opacity="0.6"/>
+        {accessories.cape && <path d="M22 88 Q8 122 18 148 Q50 160 82 148 Q92 122 78 88" fill="#4c1d95" opacity="0.95"/>}
+        {accessories.cape && <path d="M22 88 Q8 122 18 148 Q50 160 82 148 Q92 122 78 88" fill="none" stroke="#7c3aed" strokeWidth="1" opacity="0.6"/>}
 
-        {/* Body */}
-        <ellipse cx="50" cy="110" rx="30" ry="32" fill="#d4813a"/>
-        <ellipse cx="50" cy="105" rx="22" ry="24" fill="#f4a460" opacity="0.5"/>
+        {/* Fluffy tail - dark with silver tips */}
+        <path d="M62 132 Q88 118 92 96 Q96 76 82 70" stroke="#1a1a2e" strokeWidth="14" fill="none" strokeLinecap="round"/>
+        <path d="M62 132 Q88 118 92 96 Q96 76 82 70" stroke="#2d2d4e" strokeWidth="9" fill="none" strokeLinecap="round" opacity="0.8"/>
+        <path d="M62 132 Q88 118 92 96 Q96 76 82 70" stroke="#9ca3af" strokeWidth="4" fill="none" strokeLinecap="round" opacity="0.3"/>
+        {/* Tail tip silver */}
+        <ellipse cx="82" cy="70" rx="6" ry="5" fill="#e2e8f0" opacity="0.4" transform="rotate(-20 82 70)"/>
 
-        {/* Neck fluff */}
-        <ellipse cx="50" cy="85" rx="22" ry="12" fill="#e8923e"/>
-        <ellipse cx="50" cy="82" rx="18" ry="10" fill="#f4b060" opacity="0.6"/>
+        {/* Body - jet black with subtle blue sheen */}
+        <ellipse cx="50" cy="112" rx="30" ry="32" fill="#0f0f1a"/>
+        <ellipse cx="50" cy="108" rx="22" ry="24" fill="#1e1e3a" opacity="0.6"/>
+        {/* Chest fluff - lighter */}
+        <ellipse cx="50" cy="102" rx="14" ry="16" fill="#2d2d4e" opacity="0.5"/>
 
-        {/* Head */}
-        <ellipse cx="50" cy="55" rx="26" ry="24" fill="#d4813a"/>
-        
-        {/* Cheek fluff */}
-        <ellipse cx="22" cy="58" rx="10" ry="8" fill="#e8923e" opacity="0.7"/>
-        <ellipse cx="78" cy="58" rx="10" ry="8" fill="#e8923e" opacity="0.7"/>
+        {/* Neck fluff - very fluffy for Maine Coon */}
+        <ellipse cx="50" cy="84" rx="24" ry="14" fill="#161626"/>
+        <ellipse cx="50" cy="80" rx="20" ry="11" fill="#2d2d4e" opacity="0.5"/>
+        {/* Silver neck tips */}
+        <ellipse cx="35" cy="82" rx="6" ry="4" fill="#94a3b8" opacity="0.2" transform="rotate(-20 35 82)"/>
+        <ellipse cx="65" cy="82" rx="6" ry="4" fill="#94a3b8" opacity="0.2" transform="rotate(20 65 82)"/>
 
-        {/* Ears */}
-        <polygon points="20,38 28,20 38,38" fill="#d4813a" style={{ animation: 'earTwitch 3s ease-in-out infinite', transformOrigin: '29px 38px' }}/>
-        <polygon points="62,38 72,20 80,38" fill="#d4813a" style={{ animation: 'earTwitch 3s ease-in-out infinite 0.5s', transformOrigin: '71px 38px' }}/>
-        <polygon points="23,38 28,25 35,38" fill="#f4a0a0" opacity="0.7"/>
-        <polygon points="65,38 72,25 77,38" fill="#f4a0a0" opacity="0.7"/>
+        {/* Head - round Maine Coon */}
+        <ellipse cx="50" cy="53" rx="27" ry="25" fill="#0f0f1a"/>
 
-        {/* Face markings */}
-        <path d="M35 45 Q50 40 65 45" stroke="#c47a30" strokeWidth="1.5" fill="none" opacity="0.4"/>
+        {/* Cheek fluff - signature Maine Coon */}
+        <ellipse cx="20" cy="58" rx="12" ry="9" fill="#161626" opacity="0.9"/>
+        <ellipse cx="80" cy="58" rx="12" ry="9" fill="#161626" opacity="0.9"/>
+        {/* Silver cheek tips */}
+        <ellipse cx="16" cy="60" rx="6" ry="4" fill="#94a3b8" opacity="0.25"/>
+        <ellipse cx="84" cy="60" rx="6" ry="4" fill="#94a3b8" opacity="0.25"/>
+
+        {/* Ears - tall Maine Coon with lynx tips */}
+        <polygon points="18,38 26,16 38,38" fill="#0f0f1a" style={{ animation: 'earTwitchKuro 3.5s ease-in-out infinite', transformOrigin: '28px 38px' }}/>
+        <polygon points="62,38 74,16 82,38" fill="#0f0f1a" style={{ animation: 'earTwitchKuro 3.5s ease-in-out infinite 0.6s', transformOrigin: '72px 38px' }}/>
+        {/* Inner ear */}
+        <polygon points="22,38 27,22 35,38" fill="#2d1b4e" opacity="0.7"/>
+        <polygon points="65,38 73,22 79,38" fill="#2d1b4e" opacity="0.7"/>
+        {/* Lynx ear tips */}
+        <line x1="26" y1="16" x2="24" y2="10" stroke="#94a3b8" strokeWidth="2" strokeLinecap="round" opacity="0.6"/>
+        <line x1="74" y1="16" x2="76" y2="10" stroke="#94a3b8" strokeWidth="2" strokeLinecap="round" opacity="0.6"/>
+
+        {/* Forehead marking - subtle purple shimmer */}
+        <path d="M42 38 Q50 34 58 38" stroke="#7c3aed" strokeWidth="1" fill="none" opacity="0.4"/>
 
         {/* Eyes */}
         {eyes[mood]}
 
-        {/* Nose */}
-        <polygon points="50,58 47,61 53,61" fill="#e8647a"/>
-        
-        {/* Whiskers */}
-        <line x1="15" y1="60" x2="38" y2="62" stroke="#f4d090" strokeWidth="1.2" opacity="0.8"/>
-        <line x1="15" y1="64" x2="38" y2="64" stroke="#f4d090" strokeWidth="1.2" opacity="0.8"/>
-        <line x1="62" y1="62" x2="85" y2="60" stroke="#f4d090" strokeWidth="1.2" opacity="0.8"/>
-        <line x1="62" y1="64" x2="85" y2="64" stroke="#f4d090" strokeWidth="1.2" opacity="0.8"/>
+        {/* Nose - small pink */}
+        <polygon points="50,60 47,63 53,63" fill="#c084a0"/>
+
+        {/* Whiskers - silver/white */}
+        <line x1="10" y1="61" x2="36" y2="63" stroke="#e2e8f0" strokeWidth="1" opacity="0.7"/>
+        <line x1="10" y1="65" x2="36" y2="65" stroke="#e2e8f0" strokeWidth="1" opacity="0.7"/>
+        <line x1="14" y1="69" x2="36" y2="67" stroke="#e2e8f0" strokeWidth="1" opacity="0.5"/>
+        <line x1="64" y1="63" x2="90" y2="61" stroke="#e2e8f0" strokeWidth="1" opacity="0.7"/>
+        <line x1="64" y1="65" x2="90" y2="65" stroke="#e2e8f0" strokeWidth="1" opacity="0.7"/>
+        <line x1="64" y1="67" x2="86" y2="69" stroke="#e2e8f0" strokeWidth="1" opacity="0.5"/>
 
         {/* Mouth */}
         {mouth[mood]}
 
-        {/* Blush when victory */}
-        {mood === 'victory' && <><ellipse cx="30" cy="60" rx="7" ry="4" fill="#ff9999" opacity="0.4"/><ellipse cx="70" cy="60" rx="7" ry="4" fill="#ff9999" opacity="0.4"/></>}
+        {/* Blush victory */}
+        {mood === 'victory' && <><ellipse cx="28" cy="60" rx="8" ry="5" fill="#c084fc" opacity="0.3"/><ellipse cx="72" cy="60" rx="8" ry="5" fill="#c084fc" opacity="0.3"/></>}
 
-        {/* Bow (level 2+) */}
-        {accessories.bow && <g transform="translate(50, 78)"><path d="M-12,-5 Q-6,0 0,0 Q-6,0 -12,5 Z" fill="#ff6b9d"/><path d="M12,-5 Q6,0 0,0 Q6,0 12,5 Z" fill="#ff6b9d"/><circle cx="0" cy="0" r="3" fill="#ff4d8d"/></g>}
+        {/* Bow (level 2+) - purple bow tie */}
+        {accessories.bow && (
+          <g transform="translate(50, 80)">
+            <path d="M-12,-5 Q-6,0 0,0 Q-6,0 -12,5 Z" fill="#7c3aed"/>
+            <path d="M12,-5 Q6,0 0,0 Q6,0 12,5 Z" fill="#7c3aed"/>
+            <circle cx="0" cy="0" r="3" fill="#a855f7"/>
+            <circle cx="0" cy="0" r="1.5" fill="#ffd700"/>
+          </g>
+        )}
 
         {/* Headset (level 3+) */}
-        {accessories.headset && <g><path d="M24 45 Q50 25 76 45" stroke="#334155" strokeWidth="3" fill="none"/><rect x="18" y="43" width="10" height="8" rx="3" fill="#1e293b"/><rect x="72" y="43" width="10" height="8" rx="3" fill="#1e293b"/><rect x="22" y="46" width="4" height="4" rx="1" fill="#22d3ee"/><rect x="74" y="46" width="4" height="4" rx="1" fill="#22d3ee"/></g>}
+        {accessories.headset && (
+          <g>
+            <path d="M23 43 Q50 23 77 43" stroke="#1e1b4b" strokeWidth="3" fill="none"/>
+            <rect x="17" y="41" width="10" height="8" rx="3" fill="#1e1b4b"/>
+            <rect x="73" y="41" width="10" height="8" rx="3" fill="#1e1b4b"/>
+            <rect x="21" y="44" width="4" height="4" rx="1" fill="#7c3aed"/>
+            <rect x="75" y="44" width="4" height="4" rx="1" fill="#7c3aed"/>
+          </g>
+        )}
 
         {/* Paws */}
-        <ellipse cx="32" cy="138" rx="10" ry="7" fill="#d4813a"/>
-        <ellipse cx="68" cy="138" rx="10" ry="7" fill="#d4813a"/>
+        <ellipse cx="32" cy="140" rx="11" ry="7" fill="#0f0f1a"/>
+        <ellipse cx="68" cy="140" rx="11" ry="7" fill="#0f0f1a"/>
+        {/* Silver paw tips */}
+        <ellipse cx="32" cy="143" rx="9" ry="3" fill="#2d2d4e" opacity="0.5"/>
+        <ellipse cx="68" cy="143" rx="9" ry="3" fill="#2d2d4e" opacity="0.5"/>
 
-        {/* Victory star eyes overlay */}
-        {mood === 'victory' && <><text x="29" y="56" fontSize="12" textAnchor="middle">⭐</text><text x="71" y="56" fontSize="12" textAnchor="middle">⭐</text></>}
+        {/* Purple aura glow at base */}
+        <ellipse cx="50" cy="148" rx="25" ry="5" fill="#7c3aed" opacity="0.12"/>
       </svg>
 
       {/* Sparkles */}
-      {(sparkle || mood === 'victory') && [...Array(6)].map((_, i) => (
+      {(sparkle || mood === 'victory') && [...Array(8)].map((_, i) => (
         <div key={i} style={{
           position: 'absolute',
-          top: `${20 + Math.random() * 60}%`,
-          left: `${10 + Math.random() * 80}%`,
-          fontSize: '14px',
-          animation: `sparkleFloat ${0.8 + i * 0.2}s ease-out forwards`,
-          '--tx': `${(Math.random() - 0.5) * 60}px`,
-          '--ty': `${-20 - Math.random() * 40}px`,
-          animationDelay: `${i * 0.1}s`,
-        }}>✨</div>
+          top: `${15 + Math.random() * 65}%`,
+          left: `${5 + Math.random() * 85}%`,
+          fontSize: i % 2 === 0 ? '12px' : '10px',
+          animation: `sparkleFloat ${0.7 + i * 0.15}s ease-out forwards`,
+          '--tx': `${(Math.random() - 0.5) * 70}px`,
+          '--ty': `${-25 - Math.random() * 45}px`,
+          animationDelay: `${i * 0.08}s`,
+          pointerEvents: 'none',
+        }}>{i % 3 === 0 ? '✨' : i % 3 === 1 ? '⭐' : '💫'}</div>
       ))}
     </div>
   )
 }
 
-// ===================== VEX - LABRADOR DOG SVG =====================
-function VexSVG({ mood = 'idle', level = 1, sparkle = false }) {
+// ===================== SHIRO - WHITE LABRADOR (REDESIGNED) =====================
+function ShiroSVG({ mood = 'idle', level = 1, sparkle = false }) {
   const accessories = {
     bow: level >= 2,
     headset: level >= 3,
@@ -170,221 +264,658 @@ function VexSVG({ mood = 'idle', level = 1, sparkle = false }) {
   }
 
   const eyes = {
-    idle: <><ellipse cx="36" cy="52" rx="6" ry="5" fill="#3d1a00"/><ellipse cx="64" cy="52" rx="6" ry="5" fill="#3d1a00"/><ellipse cx="37" cy="50" rx="2" ry="2" fill="white"/><ellipse cx="65" cy="50" rx="2" ry="2" fill="white"/></>,
-    investigate: <><ellipse cx="36" cy="52" rx="6" ry="4" fill="#3d1a00"/><ellipse cx="64" cy="52" rx="6" ry="4" fill="#3d1a00"/><ellipse cx="37" cy="51" rx="2" ry="1.5" fill="white"/><ellipse cx="65" cy="51" rx="2" ry="1.5" fill="white"/><line x1="27" y1="45" x2="44" y2="48" stroke="#3d1a00" strokeWidth="3" strokeLinecap="round"/><line x1="56" y1="48" x2="73" y2="45" stroke="#3d1a00" strokeWidth="3" strokeLinecap="round"/></>,
-    clumsy: <><circle cx="36" cy="52" r="7" fill="#3d1a00"/><circle cx="64" cy="52" r="7" fill="#3d1a00"/><ellipse cx="38" cy="50" rx="2.5" ry="2.5" fill="white"/><ellipse cx="66" cy="50" rx="2.5" ry="2.5" fill="white"/></>,
-    victory: <><path d="M30 52 Q36 45 42 52" stroke="#3d1a00" strokeWidth="3" fill="none" strokeLinecap="round"/><path d="M58 52 Q64 45 70 52" stroke="#3d1a00" strokeWidth="3" fill="none" strokeLinecap="round"/></>,
+    idle: (
+      <>
+        <ellipse cx="36" cy="50" rx="6.5" ry="6" fill="#7a4a1e"/>
+        <ellipse cx="64" cy="50" rx="6.5" ry="6" fill="#7a4a1e"/>
+        <ellipse cx="36" cy="50" rx="4.5" ry="4.5" fill="#c8822a"/>
+        <ellipse cx="64" cy="50" rx="4.5" ry="4.5" fill="#c8822a"/>
+        <ellipse cx="36" cy="50" rx="2.5" ry="3" fill="#1a0a00"/>
+        <ellipse cx="64" cy="50" rx="2.5" ry="3" fill="#1a0a00"/>
+        <ellipse cx="34.2" cy="48.2" rx="1.8" ry="1.5" fill="white" opacity="0.95"/>
+        <ellipse cx="62.2" cy="48.2" rx="1.8" ry="1.5" fill="white" opacity="0.95"/>
+        <ellipse cx="37.5" cy="52" rx="0.7" ry="0.6" fill="white" opacity="0.5"/>
+        <ellipse cx="65.5" cy="52" rx="0.7" ry="0.6" fill="white" opacity="0.5"/>
+      </>
+    ),
+    investigate: (
+      <>
+        <ellipse cx="36" cy="50" rx="6.5" ry="5" fill="#7a4a1e"/>
+        <ellipse cx="64" cy="50" rx="6.5" ry="5" fill="#7a4a1e"/>
+        <ellipse cx="36" cy="50" rx="4" ry="3.5" fill="#c8822a"/>
+        <ellipse cx="64" cy="50" rx="4" ry="3.5" fill="#c8822a"/>
+        <ellipse cx="36" cy="50" rx="2" ry="2.2" fill="#1a0a00"/>
+        <ellipse cx="64" cy="50" rx="2" ry="2.2" fill="#1a0a00"/>
+        <ellipse cx="34" cy="48.5" rx="1.5" ry="1.2" fill="white" opacity="0.95"/>
+        <ellipse cx="62" cy="48.5" rx="1.5" ry="1.2" fill="white" opacity="0.95"/>
+        <path d="M27 43 Q36 46 44 45" stroke="#d4b896" strokeWidth="3" fill="none" strokeLinecap="round"/>
+        <path d="M56 45 Q64 46 73 43" stroke="#d4b896" strokeWidth="3" fill="none" strokeLinecap="round"/>
+      </>
+    ),
+    clumsy: (
+      <>
+        <ellipse cx="36" cy="50" rx="8" ry="8" fill="#7a4a1e"/>
+        <ellipse cx="64" cy="50" rx="8" ry="8" fill="#7a4a1e"/>
+        <ellipse cx="36" cy="50" rx="5.5" ry="5.5" fill="#c8822a"/>
+        <ellipse cx="64" cy="50" rx="5.5" ry="5.5" fill="#c8822a"/>
+        <ellipse cx="36" cy="50" rx="3.5" ry="4" fill="#1a0a00"/>
+        <ellipse cx="64" cy="50" rx="3.5" ry="4" fill="#1a0a00"/>
+        <ellipse cx="33.5" cy="47.5" rx="2" ry="1.8" fill="white" opacity="0.95"/>
+        <ellipse cx="61.5" cy="47.5" rx="2" ry="1.8" fill="white" opacity="0.95"/>
+        {/* X marks for dizzy */}
+        <line x1="30" y1="44" x2="34" y2="48" stroke="#ef4444" strokeWidth="1.5" opacity="0.7"/>
+        <line x1="34" y1="44" x2="30" y2="48" stroke="#ef4444" strokeWidth="1.5" opacity="0.7"/>
+        <line x1="58" y1="44" x2="62" y2="48" stroke="#ef4444" strokeWidth="1.5" opacity="0.7"/>
+        <line x1="62" y1="44" x2="58" y2="48" stroke="#ef4444" strokeWidth="1.5" opacity="0.7"/>
+      </>
+    ),
+    victory: (
+      <>
+        <path d="M29 50 Q36 42 43 50" stroke="#c8822a" strokeWidth="3" fill="#c8822a" opacity="0.2"/>
+        <path d="M29 50 Q36 42 43 50" stroke="#c8822a" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+        <path d="M57 50 Q64 42 71 50" stroke="#c8822a" strokeWidth="3" fill="#c8822a" opacity="0.2"/>
+        <path d="M57 50 Q64 42 71 50" stroke="#c8822a" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+        <text x="36" y="51" fontSize="9" textAnchor="middle" fill="#ffd700">✦</text>
+        <text x="64" y="51" fontSize="9" textAnchor="middle" fill="#ffd700">✦</text>
+      </>
+    ),
   }
 
   const mouth = {
-    idle: <><path d="M42 66 Q50 70 58 66" stroke="#8b4513" strokeWidth="2" fill="none" strokeLinecap="round"/><ellipse cx="50" cy="70" rx="6" ry="3" fill="#e87070" opacity="0.7"/></>,
-    investigate: <path d="M44 65 Q50 62 56 65" stroke="#8b4513" strokeWidth="2" fill="none" strokeLinecap="round"/>,
-    clumsy: <><path d="M42 67 Q50 74 58 67" stroke="#8b4513" strokeWidth="2.5" fill="none" strokeLinecap="round"/><ellipse cx="50" cy="71" rx="7" ry="4" fill="#e87070" opacity="0.8"/><path d="M46 71 Q50 75 54 71" fill="#e87070"/></>,
-    victory: <><path d="M40 65 Q50 74 60 65" stroke="#8b4513" strokeWidth="2.5" fill="none" strokeLinecap="round"/><ellipse cx="50" cy="70" rx="8" ry="5" fill="#e87070" opacity="0.9"/></>,
+    idle: <><path d="M42 68 Q50 74 58 68" stroke="#e8a0a0" strokeWidth="2" fill="none" strokeLinecap="round"/><ellipse cx="50" cy="72" rx="7" ry="4" fill="#ffb3b3" opacity="0.6"/></>,
+    investigate: <path d="M44 66 Q50 63 56 66" stroke="#e8a0a0" strokeWidth="2" fill="none" strokeLinecap="round"/>,
+    clumsy: <><path d="M41 68 Q50 77 59 68" stroke="#e8a0a0" strokeWidth="2.5" fill="none" strokeLinecap="round"/><ellipse cx="50" cy="73" rx="8" ry="5" fill="#ffb3b3" opacity="0.7"/></>,
+    victory: <><path d="M39 66 Q50 77 61 66" stroke="#e8a0a0" strokeWidth="2.5" fill="none" strokeLinecap="round"/><ellipse cx="50" cy="72" rx="9" ry="5" fill="#ffb3b3" opacity="0.85"/></>,
   }
 
   const bodyAnim = {
     idle: '',
-    investigate: 'vexInvestigate',
-    clumsy: 'vexClumsy',
-    victory: 'vexVictory',
+    investigate: 'shiroInvestigate',
+    clumsy: 'shiroClumsy',
+    victory: 'shiroVictory',
   }
 
   return (
     <div style={{ position: 'relative', display: 'inline-block' }}>
       <style>{`
-        @keyframes vexInvestigate { 0%,100%{transform:rotate(3deg) translateY(0)} 50%{transform:rotate(-3deg) translateY(-6px)} }
-        @keyframes vexClumsy { 0%{transform:rotate(0) scale(1)} 15%{transform:rotate(-20deg) scale(0.95)} 30%{transform:rotate(20deg) scale(1.05)} 45%{transform:rotate(-10deg)} 60%{transform:rotate(10deg)} 100%{transform:rotate(0) scale(1)} }
-        @keyframes vexVictory { 0%,100%{transform:translateY(0) rotate(0)} 30%{transform:translateY(-18px) rotate(-5deg)} 60%{transform:translateY(-8px) rotate(5deg)} 80%{transform:translateY(-15px) rotate(-3deg)} }
-        @keyframes tailWagDog { 0%,100%{transform:rotate(-20deg)} 50%{transform:rotate(20deg)} }
+        @keyframes shiroInvestigate { 0%,100%{transform:rotate(3deg) translateY(0)} 50%{transform:rotate(-3deg) translateY(-8px)} }
+        @keyframes shiroClumsy { 0%{transform:rotate(0) scale(1)} 15%{transform:rotate(-22deg) scale(0.94)} 30%{transform:rotate(22deg) scale(1.06)} 45%{transform:rotate(-10deg)} 60%{transform:rotate(10deg)} 100%{transform:rotate(0) scale(1)} }
+        @keyframes shiroVictory { 0%,100%{transform:translateY(0) rotate(0)} 30%{transform:translateY(-20px) rotate(-6deg)} 60%{transform:translateY(-8px) rotate(6deg)} 80%{transform:translateY(-16px) rotate(-3deg)} }
+        @keyframes tailWagShiro { 0%,100%{transform:rotate(-30deg)} 50%{transform:rotate(30deg)} }
+        @keyframes shineGlow { 0%,100%{filter:drop-shadow(0 0 5px #ffffff33)} 50%{filter:drop-shadow(0 0 12px #ffffff66)} }
+        @keyframes sparkleFloat { 0%{transform:translate(0,0) scale(0);opacity:1} 100%{transform:translate(var(--tx),var(--ty)) scale(1.2);opacity:0} }
       `}</style>
 
-      <svg width="120" height="160" viewBox="0 0 100 160" style={{ animation: bodyAnim[mood] ? `${bodyAnim[mood]} 1s ease-in-out infinite` : '', filter: accessories.glow ? 'drop-shadow(0 0 12px #f59e0b)' : '' }}>
-        
+      <svg width="120" height="170" viewBox="0 0 100 170"
+        style={{
+          animation: bodyAnim[mood] ? `${bodyAnim[mood]} 1s ease-in-out infinite` : 'shineGlow 3s ease-in-out infinite',
+          filter: accessories.glow ? 'drop-shadow(0 0 18px #ffffff)' : ''
+        }}>
+
         {/* Cape */}
-        {accessories.cape && <path d="M25 90 Q10 120 20 145 Q50 158 80 145 Q90 120 75 90" fill="#991b1b" opacity="0.9"/>}
+        {accessories.cape && <path d="M22 92 Q8 126 18 152 Q50 164 82 152 Q92 126 78 92" fill="#b91c1c" opacity="0.95"/>}
 
-        {/* Tail */}
-        <path d="M72 125 Q92 110 90 90 Q88 75 78 72" stroke="#c8860a" strokeWidth="10" fill="none" strokeLinecap="round" style={{ animation: 'tailWagDog 0.6s ease-in-out infinite', transformOrigin: '72px 125px' }}/>
+        {/* Tail - happy wagging lab tail, thick at base */}
+        <path d="M68 130 Q86 108 88 86 Q90 68 80 62" stroke="#f0ece4" strokeWidth="10" fill="none" strokeLinecap="round"
+          style={{ animation: 'tailWagShiro 0.45s ease-in-out infinite', transformOrigin: '68px 130px' }}/>
+        <path d="M68 130 Q86 108 88 86 Q90 68 80 62" stroke="#e8e0d0" strokeWidth="6" fill="none" strokeLinecap="round" opacity="0.5"/>
 
-        {/* Body */}
-        <ellipse cx="50" cy="112" rx="28" ry="30" fill="#c8860a"/>
-        <ellipse cx="50" cy="108" rx="20" ry="22" fill="#e8a020" opacity="0.4"/>
+        {/* Body - solid white lab body, more rectangular/stocky */}
+        <rect x="22" y="96" width="56" height="52" rx="16" fill="#f4f0e8"/>
+        <ellipse cx="50" cy="96" rx="28" ry="12" fill="#f4f0e8"/>
+        <ellipse cx="50" cy="148" rx="28" ry="10" fill="#f4f0e8"/>
+        {/* Body highlight */}
+        <ellipse cx="38" cy="108" rx="8" ry="14" fill="white" opacity="0.4" transform="rotate(-10 38 108)"/>
 
-        {/* Collar band */}
-        <rect x="30" y="84" width="40" height="8" rx="4" fill="#1e3a5f"/>
-        <rect x="32" y="85" width="36" height="6" rx="3" fill="#2563eb" opacity="0.7"/>
-        <circle cx="50" cy="88" r="3" fill="#fbbf24"/>
+        {/* Collar */}
+        <rect x="28" y="88" width="44" height="9" rx="4.5" fill="#1e3a5f"/>
+        <rect x="30" y="89.5" width="40" height="6" rx="3" fill="#3b82f6" opacity="0.8"/>
+        <circle cx="50" cy="93" r="3.5" fill="#fbbf24"/>
+        <text x="50" y="95" fontSize="4" textAnchor="middle" fill="#78350f">S</text>
 
-        {/* Neck */}
-        <ellipse cx="50" cy="86" rx="20" ry="10" fill="#c8860a"/>
+        {/* Neck - thick lab neck */}
+        <ellipse cx="50" cy="88" rx="20" ry="10" fill="#f4f0e8"/>
 
-        {/* Head - Labrador has broader head */}
-        <ellipse cx="50" cy="53" rx="28" ry="26" fill="#c8860a"/>
-        
-        {/* Snout */}
-        <ellipse cx="50" cy="64" rx="14" ry="10" fill="#b87008"/>
-        <ellipse cx="50" cy="62" rx="12" ry="8" fill="#d4920e" opacity="0.5"/>
+        {/* HEAD - proper broad White Labrador head */}
+        {/* Back of head */}
+        <ellipse cx="50" cy="50" rx="28" ry="26" fill="#f0ece4"/>
+        {/* Forehead dome */}
+        <ellipse cx="50" cy="42" rx="24" ry="20" fill="#f4f0e8"/>
+        {/* Head highlight */}
+        <ellipse cx="40" cy="36" rx="10" ry="7" fill="white" opacity="0.4" transform="rotate(-20 40 36)"/>
 
-        {/* Ears - floppy lab ears */}
-        <ellipse cx="20" cy="55" rx="10" ry="16" fill="#b07008" transform="rotate(-15 20 55)"/>
-        <ellipse cx="80" cy="55" rx="10" ry="16" fill="#b07008" transform="rotate(15 80 55)"/>
+        {/* Muzzle - prominent lab muzzle, square and wide */}
+        <rect x="32" y="58" width="36" height="22" rx="10" fill="#e8e0cc"/>
+        <ellipse cx="50" cy="58" rx="18" ry="8" fill="#ede8dc"/>
+        {/* Muzzle highlight */}
+        <ellipse cx="42" cy="60" rx="5" ry="3" fill="white" opacity="0.3"/>
+
+        {/* Floppy ears - wide flat lab ears */}
+        <ellipse cx="18" cy="52" rx="12" ry="18" fill="#ddd0b8" transform="rotate(-10 18 52)"/>
+        <ellipse cx="82" cy="52" rx="12" ry="18" fill="#ddd0b8" transform="rotate(10 82 52)"/>
+        <ellipse cx="18" cy="52" rx="8" ry="14" fill="#c8bca0" opacity="0.5" transform="rotate(-10 18 52)"/>
+        <ellipse cx="82" cy="52" rx="8" ry="14" fill="#c8bca0" opacity="0.5" transform="rotate(10 82 52)"/>
 
         {/* Eyes */}
         {eyes[mood]}
 
-        {/* Nose */}
-        <ellipse cx="50" cy="61" rx="7" ry="5" fill="#1a1a1a"/>
-        <ellipse cx="48" cy="59" rx="2" ry="1.5" fill="#555" opacity="0.7"/>
+        {/* Nose - wide lab nose */}
+        <ellipse cx="50" cy="63" rx="8" ry="6" fill="#1a1a1a"/>
+        <ellipse cx="50" cy="61" rx="5" ry="3.5" fill="#333" opacity="0.5"/>
+        <ellipse cx="47" cy="61" rx="2" ry="1.4" fill="white" opacity="0.4"/>
+        {/* Nose nostrils */}
+        <ellipse cx="46" cy="64" rx="2" ry="1.5" fill="#111" opacity="0.6"/>
+        <ellipse cx="54" cy="64" rx="2" ry="1.5" fill="#111" opacity="0.6"/>
 
         {/* Mouth */}
         {mouth[mood]}
 
         {/* Blush */}
-        {mood === 'victory' && <><ellipse cx="28" cy="60" rx="8" ry="5" fill="#ff9999" opacity="0.4"/><ellipse cx="72" cy="60" rx="8" ry="5" fill="#ff9999" opacity="0.4"/></>}
+        {mood === 'victory' && <><ellipse cx="26" cy="60" rx="9" ry="5" fill="#fca5a5" opacity="0.4"/><ellipse cx="74" cy="60" rx="9" ry="5" fill="#fca5a5" opacity="0.4"/></>}
 
         {/* Bow on collar (level 2+) */}
-        {accessories.bow && <g transform="translate(50, 88)"><path d="M-10,-4 Q-5,0 0,0 Q-5,0 -10,4 Z" fill="#ff6b9d"/><path d="M10,-4 Q5,0 0,0 Q5,0 10,4 Z" fill="#ff6b9d"/><circle cx="0" cy="0" r="2.5" fill="#ff4d8d"/></g>}
+        {accessories.bow && (
+          <g transform="translate(50, 94)">
+            <path d="M-11,-4 Q-5.5,0 0,0 Q-5.5,0 -11,4 Z" fill="#3b82f6"/>
+            <path d="M11,-4 Q5.5,0 0,0 Q5.5,0 11,4 Z" fill="#3b82f6"/>
+            <circle cx="0" cy="0" r="2.5" fill="#60a5fa"/>
+            <circle cx="0" cy="0" r="1.2" fill="white" opacity="0.8"/>
+          </g>
+        )}
 
         {/* Headset (level 3+) */}
-        {accessories.headset && <g><path d="M22 42 Q50 22 78 42" stroke="#334155" strokeWidth="3" fill="none"/><rect x="16" y="40" width="10" height="8" rx="3" fill="#1e293b"/><rect x="74" y="40" width="10" height="8" rx="3" fill="#1e293b"/><rect x="20" y="43" width="4" height="4" rx="1" fill="#f59e0b"/><rect x="76" y="43" width="4" height="4" rx="1" fill="#f59e0b"/></g>}
+        {accessories.headset && (
+          <g>
+            <path d="M21 38 Q50 18 79 38" stroke="#374151" strokeWidth="3" fill="none"/>
+            <rect x="15" y="36" width="10" height="9" rx="3" fill="#1f2937"/>
+            <rect x="75" y="36" width="10" height="9" rx="3" fill="#1f2937"/>
+            <rect x="19" y="39" width="4" height="4" rx="1" fill="#f59e0b"/>
+            <rect x="77" y="39" width="4" height="4" rx="1" fill="#f59e0b"/>
+          </g>
+        )}
 
+        {/* Legs - stubby lab legs */}
+        <rect x="28" y="142" width="18" height="20" rx="8" fill="#f0ece4"/>
+        <rect x="54" y="142" width="18" height="20" rx="8" fill="#f0ece4"/>
         {/* Paws */}
-        <ellipse cx="34" cy="138" rx="11" ry="8" fill="#c8860a"/>
-        <ellipse cx="66" cy="138" rx="11" ry="8" fill="#c8860a"/>
+        <ellipse cx="37" cy="162" rx="10" ry="7" fill="#e8e0cc"/>
+        <ellipse cx="63" cy="162" rx="10" ry="7" fill="#e8e0cc"/>
+        {/* Paw pads */}
+        <ellipse cx="37" cy="165" rx="7" ry="3.5" fill="#e8c8b0" opacity="0.7"/>
+        <ellipse cx="63" cy="165" rx="7" ry="3.5" fill="#e8c8b0" opacity="0.7"/>
 
-        {/* Toe lines */}
-        <line x1="30" y1="140" x2="30" y2="143" stroke="#b07008" strokeWidth="1.5"/>
-        <line x1="34" y1="141" x2="34" y2="144" stroke="#b07008" strokeWidth="1.5"/>
-        <line x1="38" y1="140" x2="38" y2="143" stroke="#b07008" strokeWidth="1.5"/>
-
-        {/* Victory star eyes */}
-        {mood === 'victory' && <><text x="29" y="56" fontSize="12" textAnchor="middle">⭐</text><text x="71" y="56" fontSize="12" textAnchor="middle">⭐</text></>}
+        {/* White aura */}
+        <ellipse cx="50" cy="166" rx="26" ry="4" fill="white" opacity="0.08"/>
       </svg>
 
       {/* Sparkles */}
-      {(sparkle || mood === 'victory') && [...Array(6)].map((_, i) => (
+      {(sparkle || mood === 'victory') && [...Array(8)].map((_, i) => (
         <div key={i} style={{
           position: 'absolute',
-          top: `${20 + Math.random() * 60}%`,
-          left: `${10 + Math.random() * 80}%`,
-          fontSize: '14px',
-          animation: `sparkleFloat ${0.8 + i * 0.2}s ease-out forwards`,
-          '--tx': `${(Math.random() - 0.5) * 60}px`,
-          '--ty': `${-20 - Math.random() * 40}px`,
-          animationDelay: `${i * 0.1}s`,
+          top: `${15 + Math.random() * 65}%`,
+          left: `${5 + Math.random() * 85}%`,
+          fontSize: i % 2 === 0 ? '12px' : '10px',
+          animation: `sparkleFloat ${0.7 + i * 0.15}s ease-out forwards`,
+          '--tx': `${(Math.random() - 0.5) * 70}px`,
+          '--ty': `${-25 - Math.random() * 45}px`,
+          animationDelay: `${i * 0.08}s`,
           pointerEvents: 'none',
-        }}>✨</div>
+        }}>{i % 3 === 0 ? '✨' : i % 3 === 1 ? '⭐' : '💫'}</div>
       ))}
     </div>
   )
 }
+// ===================== WALKING LOADING SCREEN =====================
+// Side-view walking animation with scene-specific props
 
-// ===================== LOADING SCREEN =====================
-function LoadingScreen({ category, companion }) {
-  const [phase, setPhase] = useState(0) // 0=investigate, 1=clumsy, 2=victory
-  
+function WalkingLoadingScreen({ category, companion }) {
+  const [phase, setPhase] = useState(0)
+  // phases: 0=walking in, 1=clumsy interaction, 2=victory
+
   useEffect(() => {
-    const t1 = setTimeout(() => setPhase(1), 800)
-    const t2 = setTimeout(() => setPhase(2), 1800)
+    const t1 = setTimeout(() => setPhase(1), 1200)
+    const t2 = setTimeout(() => setPhase(2), 2200)
     return () => { clearTimeout(t1); clearTimeout(t2) }
   }, [])
 
-  const moods = ['investigate', 'clumsy', 'victory']
-  const mood = moods[phase]
-  const CompComponent = companion === 'lux' ? LuxSVG : VexSVG
-
-  const messages = {
-    investigate: {
-      drainage: `${companion === 'lux' ? 'Lux' : 'Vex'} is sniffing the manhole... 🔍`,
-      streetlight: `${companion === 'lux' ? 'Lux' : 'Vex'} is eyeing that flickering bulb... 👀`,
-      waterleak: `${companion === 'lux' ? 'Lux' : 'Vex'} spotted something suspicious... 💧`,
-      powergrid: `${companion === 'lux' ? 'Lux' : 'Vex'} is approaching the wire carefully... ⚡`,
-      other: `${companion === 'lux' ? 'Lux' : 'Vex'} is on the case... 🔎`,
-    },
-    clumsy: {
-      drainage: `Whoops! ${companion === 'lux' ? 'Lux' : 'Vex'} fell halfway in! 😵`,
-      streetlight: `ZAP! Got zapped by the bulb! 😵‍💫`,
-      waterleak: `Slipped in the puddle! 💦`,
-      powergrid: `Fur standing on end! ⚡😱`,
-      other: `This is more complicated than expected... 😅`,
-    },
-    victory: {
-      drainage: `Issue logged! Nailed it! 🏆✨`,
-      streetlight: `Reported! Let there be light! ✨💡`,
-      waterleak: `Leak reported! Hero move! 🏆✨`,
-      powergrid: `Grid issue flagged! Sparky! ⚡✨`,
-      other: `Routed to the right team! 🏆✨`,
-    },
-  }
-
-  const catColors = {
-    drainage: '#3b82f6',
-    streetlight: '#f59e0b',
-    waterleak: '#06b6d4',
-    powergrid: '#eab308',
-    other: '#a855f7',
-  }
-
-  const bgColor = catColors[category?.id] || '#22d3ee'
+  const isKuro = companion === 'kuro'
+  const name = isKuro ? 'Kuro' : 'Shiro'
+  const accent = {
+    drainage: '#3b82f6', streetlight: '#f59e0b',
+    waterleak: '#06b6d4', powergrid: '#eab308', other: '#a855f7'
+  }[category?.id] || '#22d3ee'
 
   return (
     <div style={{
-      position: 'fixed', inset: 0, background: '#080c14', zIndex: 200,
-      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '24px'
+      position: 'fixed', inset: 0, background: '#060a12', zIndex: 200,
+      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+      overflow: 'hidden',
     }}>
       <style>{`
         @keyframes sparkleFloat { 0%{transform:translate(0,0) scale(0);opacity:1} 100%{transform:translate(var(--tx),var(--ty)) scale(1.2);opacity:0} }
-        @keyframes glowPulse { 0%,100%{box-shadow:0 0 20px ${bgColor}44} 50%{box-shadow:0 0 50px ${bgColor}88} }
+        @keyframes walkIn { 0%{transform:translateX(-180px)} 100%{transform:translateX(0px)} }
+        @keyframes bodyBob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+        @keyframes legSwingFront { 0%,100%{transform:rotate(-25deg)} 50%{transform:rotate(25deg)} }
+        @keyframes legSwingBack { 0%,100%{transform:rotate(25deg)} 50%{transform:rotate(-25deg)} }
+        @keyframes tailWalkKuro { 0%,100%{transform:rotate(-10deg)} 50%{transform:rotate(20deg)} }
+        @keyframes tailWalkShiro { 0%,100%{transform:rotate(-30deg)} 50%{transform:rotate(30deg)} }
+        @keyframes earBounce { 0%,100%{transform:rotate(0deg)} 50%{transform:rotate(-8deg)} }
+
+        /* Clumsy animations */
+        @keyframes fallInHole { 0%{transform:translateY(0) rotate(0)} 40%{transform:translateY(20px) rotate(-30deg)} 70%{transform:translateY(40px) rotate(-60deg) scaleY(0.3)} 100%{transform:translateY(40px) rotate(-60deg) scaleY(0.3)} }
+        @keyframes getZapped { 0%{transform:rotate(0) scale(1)} 10%{transform:rotate(-15deg) scale(1.1)} 20%{transform:rotate(15deg) scale(1.15)} 30%{transform:rotate(-20deg) scale(1.1)} 40%{transform:rotate(20deg) scale(1.2)} 50%{transform:rotate(-10deg) scale(1.1)} 60%{transform:rotate(10deg) scale(1.05)} 100%{transform:rotate(0) scale(1)} }
+        @keyframes slip { 0%{transform:rotate(0) translateX(0)} 30%{transform:rotate(20deg) translateX(10px)} 60%{transform:rotate(45deg) translateX(20px) translateY(15px)} 80%{transform:rotate(30deg) translateX(15px) translateY(10px)} 100%{transform:rotate(45deg) translateX(20px) translateY(15px)} }
+        @keyframes powerShake { 0%,100%{transform:translateX(0) scale(1)} 10%{transform:translateX(-8px) scale(1.05)} 20%{transform:translateX(8px) scale(1.1)} 30%{transform:translateX(-6px) scale(1.08)} 40%{transform:translateX(6px) scale(1.12)} 50%{transform:translateX(-4px) scale(1.1)} 60%{transform:translateX(4px) scale(1.08)} 70%{transform:translateX(-2px) scale(1.05)} 80%{transform:translateX(2px) scale(1.02)} }
+        @keyframes confusedSpin { 0%{transform:rotate(0)} 25%{transform:rotate(-15deg)} 50%{transform:rotate(15deg)} 75%{transform:rotate(-10deg)} 100%{transform:rotate(0)} }
+
+        /* Victory */
+        @keyframes victoryJump { 0%,100%{transform:translateY(0) scale(1)} 30%{transform:translateY(-30px) scale(1.1)} 60%{transform:translateY(-15px) scale(1.05)} 80%{transform:translateY(-25px) scale(1.08)} }
+
+        /* Scene props */
+        @keyframes bulbFlicker { 0%,100%{opacity:1;filter:drop-shadow(0 0 8px #fbbf24)} 25%{opacity:0.3} 50%{opacity:0.8} 75%{opacity:0.2} }
+        @keyframes waterRipple { 0%,100%{transform:scaleX(1)} 50%{transform:scaleX(1.15)} }
+        @keyframes wireZap { 0%,100%{stroke:#eab308;filter:drop-shadow(0 0 3px #eab308)} 50%{stroke:#ffffff;filter:drop-shadow(0 0 12px #ffffff)} }
+        @keyframes groundShake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-3px)} 75%{transform:translateX(3px)} }
+        @keyframes popIn { 0%{transform:scale(0) translateY(10px);opacity:0} 100%{transform:scale(1) translateY(0);opacity:1} }
+        @keyframes dotBounce { 0%,80%,100%{transform:scale(0.6);opacity:0.4} 40%{transform:scale(1);opacity:1} }
       `}</style>
 
+      {/* Soft accent glow */}
       <div style={{
-        padding: '32px',
-        borderRadius: '24px',
-        border: `2px solid ${bgColor}44`,
-        background: `${bgColor}11`,
-        animation: 'glowPulse 2s ease-in-out infinite',
-        minWidth: '200px',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '8px',
+        position: 'absolute', width: '300px', height: '300px', borderRadius: '50%',
+        background: `radial-gradient(circle, ${accent}18 0%, transparent 70%)`,
+        top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
+      }}/>
+
+      {/* SCENE CONTAINER */}
+      <div style={{
+        position: 'relative', width: '320px', height: '200px',
+        display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
       }}>
-        <CompComponent mood={mood} level={1} sparkle={phase === 2} />
-        
-        {/* Category icon interaction */}
-        <div style={{ fontSize: '32px', marginTop: '-8px' }}>
-          {phase === 0 && category?.icon}
-          {phase === 1 && '😵'}
-          {phase === 2 && '✅'}
+
+        {/* Ground line */}
+        <div style={{
+          position: 'absolute', bottom: '30px', left: 0, right: 0,
+          height: '2px', background: `${accent}33`,
+          animation: phase === 1 && category?.id === 'powergrid' ? 'groundShake 0.1s linear infinite' : 'none',
+        }}/>
+
+        {/* ===== SCENE PROPS ===== */}
+
+        {/* DRAINAGE: Manhole */}
+        {category?.id === 'drainage' && (
+          <div style={{ position: 'absolute', right: '60px', bottom: '28px', animation: 'popIn 0.3s ease-out' }}>
+            <svg width="60" height="30" viewBox="0 0 60 30">
+              <ellipse cx="30" cy="15" rx="28" ry="12" fill="#1e293b" stroke={accent} strokeWidth="2"/>
+              <ellipse cx="30" cy="12" rx="22" ry="9" fill="#0a0f1a" stroke={accent} strokeWidth="1" opacity="0.8"/>
+              {/* Grid pattern */}
+              <line x1="30" y1="3" x2="30" y2="21" stroke={accent} strokeWidth="1" opacity="0.4"/>
+              <line x1="10" y1="12" x2="50" y2="12" stroke={accent} strokeWidth="1" opacity="0.4"/>
+              <text x="30" y="17" fontSize="10" textAnchor="middle" fill={accent} opacity="0.6">⚠</text>
+            </svg>
+            {/* Water dripping from hole */}
+            {phase >= 1 && [0,1,2].map(i => (
+              <div key={i} style={{
+                position: 'absolute', top: '20px', left: `${18+i*10}px`,
+                width: '4px', height: '8px', borderRadius: '50%',
+                background: accent, opacity: 0.6,
+                animation: `dotBounce 0.8s ease-in-out infinite`,
+                animationDelay: `${i*0.2}s`,
+              }}/>
+            ))}
+          </div>
+        )}
+
+        {/* STREETLIGHT: Lamp post */}
+        {category?.id === 'streetlight' && (
+          <div style={{ position: 'absolute', right: '50px', bottom: '30px', animation: 'popIn 0.3s ease-out' }}>
+            <svg width="50" height="120" viewBox="0 0 50 120">
+              {/* Pole */}
+              <rect x="22" y="30" width="6" height="90" fill="#334155"/>
+              {/* Arm */}
+              <path d="M25 30 Q25 10 40 8" stroke="#334155" strokeWidth="5" fill="none"/>
+              {/* Bulb housing */}
+              <rect x="32" y="2" width="16" height="10" rx="3" fill="#1e293b" stroke="#475569" strokeWidth="1"/>
+              {/* Bulb */}
+              <ellipse cx="40" cy="7" rx="5" ry="4"
+                fill={phase >= 1 ? '#fbbf24' : '#475569'}
+                style={{ animation: phase === 1 ? 'bulbFlicker 0.3s linear infinite' : 'none' }}/>
+              {phase >= 2 && <ellipse cx="40" cy="7" rx="8" ry="6" fill="#fbbf24" opacity="0.3"/>}
+            </svg>
+          </div>
+        )}
+
+        {/* WATERLEAK: Puddle */}
+        {category?.id === 'waterleak' && (
+          <div style={{ position: 'absolute', right: '40px', bottom: '28px', animation: 'popIn 0.3s ease-out' }}>
+            <svg width="80" height="30" viewBox="0 0 80 30">
+              <ellipse cx="40" cy="18" rx="35" ry="10" fill={accent} opacity="0.2"
+                style={{ animation: 'waterRipple 1s ease-in-out infinite' }}/>
+              <ellipse cx="40" cy="16" rx="28" ry="7" fill={accent} opacity="0.35"
+                style={{ animation: 'waterRipple 0.8s ease-in-out infinite reverse' }}/>
+              {/* Drip from above */}
+              {[0,1,2].map(i => (
+                <ellipse key={i} cx={25+i*15} cy={2+i*3} rx="2" ry="3" fill={accent} opacity="0.6"/>
+              ))}
+            </svg>
+          </div>
+        )}
+
+        {/* POWERGRID: Electrical box + wires */}
+        {category?.id === 'powergrid' && (
+          <div style={{ position: 'absolute', right: '40px', bottom: '30px', animation: 'popIn 0.3s ease-out' }}>
+            <svg width="70" height="80" viewBox="0 0 70 80">
+              {/* Pole */}
+              <rect x="30" y="20" width="8" height="60" fill="#334155"/>
+              {/* Box */}
+              <rect x="18" y="10" width="32" height="22" rx="3" fill="#1e293b" stroke="#475569" strokeWidth="1.5"/>
+              <text x="34" y="25" fontSize="12" textAnchor="middle" fill="#eab308">⚡</text>
+              {/* Hanging wire */}
+              <path d="M10 15 Q20 25 34 20" stroke="#eab308" strokeWidth="2" fill="none"
+                style={{ animation: phase >= 1 ? 'wireZap 0.2s linear infinite' : 'none' }}/>
+              {/* Sparks */}
+              {phase === 1 && [0,1,2,3].map(i => (
+                <text key={i} x={8+i*6} y={12+i*4} fontSize="8" fill="#fbbf24"
+                  style={{ animation: `dotBounce 0.4s ease-in-out infinite`, animationDelay: `${i*0.1}s` }}>
+                  ✦
+                </text>
+              ))}
+            </svg>
+          </div>
+        )}
+
+        {/* OTHER: Question marks */}
+        {category?.id === 'other' && (
+          <div style={{ position: 'absolute', right: '30px', bottom: '40px' }}>
+            {['?', '!', '?'].map((c, i) => (
+              <div key={i} style={{
+                position: 'absolute',
+                left: `${i * 22}px`, top: `${-i * 15}px`,
+                fontSize: '24px', fontWeight: '900',
+                color: accent, opacity: 0.6,
+                animation: `dotBounce 1s ease-in-out infinite`,
+                animationDelay: `${i * 0.2}s`,
+              }}>{c}</div>
+            ))}
+          </div>
+        )}
+
+        {/* ===== CHARACTER ===== */}
+        <div style={{
+          position: 'absolute',
+          bottom: '28px',
+          left: phase === 0 ? undefined : '60px',
+          animation: phase === 0 ? 'walkIn 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards' : 'none',
+          // After walking in, position at left:60px
+          transform: phase === 0 ? 'translateX(-180px)' : 'translateX(0)',
+        }}>
+          {isKuro
+            ? <KuroSideView phase={phase} categoryId={category?.id} />
+            : <ShiroSideView phase={phase} categoryId={category?.id} />
+          }
         </div>
+
+        {/* Victory sparkles */}
+        {phase === 2 && [...Array(10)].map((_, i) => (
+          <div key={i} style={{
+            position: 'absolute',
+            top: `${10 + Math.random() * 70}%`,
+            left: `${10 + Math.random() * 80}%`,
+            fontSize: '14px',
+            animation: `sparkleFloat ${0.6 + i * 0.12}s ease-out forwards`,
+            '--tx': `${(Math.random() - 0.5) * 80}px`,
+            '--ty': `${-30 - Math.random() * 50}px`,
+            animationDelay: `${i * 0.06}s`,
+            pointerEvents: 'none',
+          }}>{['✨','⭐','💫','🌟'][i % 4]}</div>
+        ))}
       </div>
 
-      <p style={{
-        color: bgColor,
-        fontSize: '16px',
-        fontWeight: '600',
-        textAlign: 'center',
-        maxWidth: '280px',
-        transition: 'all 0.5s ease',
-      }}>
-        {messages[mood]?.[category?.id] || 'Analyzing...'}
-      </p>
-
-      {/* Progress dots */}
-      <div style={{ display: 'flex', gap: '8px' }}>
-        {[0, 1, 2].map(i => (
-          <div key={i} style={{
-            width: '8px', height: '8px', borderRadius: '50%',
-            background: i <= phase ? bgColor : '#1e293b',
-            transition: 'background 0.3s ease',
-          }} />
-        ))}
+      {/* Text */}
+      <div style={{ textAlign: 'center', marginTop: '16px', zIndex: 1 }}>
+        <p style={{ color: accent, fontSize: '15px', fontWeight: '600', margin: '0 0 4px' }}>
+          {phase === 0 && `${name} is on the way...`}
+          {phase === 1 && {
+            drainage: `Whoops! Fell into the manhole! 😵`,
+            streetlight: `ZAP! That bulb is alive! ⚡`,
+            waterleak: `Slipped in the puddle! 💦`,
+            powergrid: `Live wire! ABORT! 😱`,
+            other: `What's going on here?! 🤔`,
+          }[category?.id]}
+          {phase === 2 && `Issue reported! ${name} got it! 🏆`}
+        </p>
+        <div style={{ display: 'flex', gap: '6px', justifyContent: 'center', marginTop: '8px' }}>
+          {[0,1,2].map(i => (
+            <div key={i} style={{
+              width: '6px', height: '6px', borderRadius: '50%',
+              background: phase === 2 ? '#22c55e' : accent,
+              opacity: phase === 2 ? 1 : 0.7,
+              animation: phase < 2 ? `dotBounce 1.2s ease-in-out infinite` : 'none',
+              animationDelay: `${i * 0.18}s`,
+              transition: 'background 0.3s',
+            }}/>
+          ))}
+        </div>
       </div>
     </div>
   )
 }
 
+// ===== KURO SIDE VIEW =====
+function KuroSideView({ phase, categoryId }) {
+  const bodyAnim = {
+    0: 'bodyBob 0.4s ease-in-out infinite',
+    1: {
+      drainage: 'fallInHole 0.8s ease-in forwards',
+      streetlight: 'getZapped 0.6s ease-in-out infinite',
+      waterleak: 'slip 0.8s ease-in forwards',
+      powergrid: 'powerShake 0.15s linear infinite',
+      other: 'confusedSpin 1s ease-in-out infinite',
+    }[categoryId] || 'confusedSpin 1s ease-in-out infinite',
+    2: 'victoryJump 0.6s ease-in-out infinite',
+  }[phase]
+
+  return (
+    <svg width="80" height="100" viewBox="0 0 80 100" style={{ overflow: 'visible' }}>
+      <style>{`
+        @keyframes bodyBob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+        @keyframes fallInHole { 0%{transform:translateY(0) rotate(0)} 50%{transform:translateY(20px) rotate(-20deg)} 100%{transform:translateY(45px) rotate(-40deg) scaleY(0.4)} }
+        @keyframes getZapped { 0%{transform:rotate(0) scale(1)} 20%{transform:rotate(-15deg) scale(1.1)} 40%{transform:rotate(15deg) scale(1.15)} 60%{transform:rotate(-10deg) scale(1.1)} 80%{transform:rotate(10deg) scale(1.05)} 100%{transform:rotate(0) scale(1)} }
+        @keyframes slip { 0%{transform:rotate(0)} 50%{transform:rotate(35deg) translateX(15px) translateY(10px)} 100%{transform:rotate(40deg) translateX(18px) translateY(14px)} }
+        @keyframes powerShake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+        @keyframes confusedSpin { 0%,100%{transform:rotate(0)} 30%{transform:rotate(-12deg)} 70%{transform:rotate(12deg)} }
+        @keyframes victoryJump { 0%,100%{transform:translateY(0) scale(1)} 40%{transform:translateY(-22px) scale(1.08)} 70%{transform:translateY(-10px) scale(1.04)} }
+        @keyframes legSwingFront { 0%,100%{transform:rotate(-20deg)} 50%{transform:rotate(20deg)} }
+        @keyframes legSwingBack { 0%,100%{transform:rotate(20deg)} 50%{transform:rotate(-20deg)} }
+        @keyframes tailSwing { 0%,100%{transform:rotate(-15deg)} 50%{transform:rotate(25deg)} }
+        @keyframes earFlap { 0%,100%{transform:rotate(0)} 50%{transform:rotate(-10deg)} }
+      `}</style>
+
+      <g style={{ animation: bodyAnim, transformOrigin: '40px 75px' }}>
+        {/* Tail */}
+        <path d="M15 65 Q5 50 8 35" stroke="#1a1a2e" strokeWidth="8" fill="none" strokeLinecap="round"
+          style={{ animation: phase === 0 ? 'tailSwing 0.4s ease-in-out infinite' : 'none', transformOrigin: '15px 65px' }}/>
+        <path d="M15 65 Q5 50 8 35" stroke="#2d2d4e" strokeWidth="5" fill="none" strokeLinecap="round" opacity="0.6"/>
+
+        {/* Back leg */}
+        <rect x="18" y="72" width="10" height="22" rx="5" fill="#0f0f1a"
+          style={{ animation: phase === 0 ? 'legSwingBack 0.4s ease-in-out infinite' : 'none', transformOrigin: '23px 72px' }}/>
+        <ellipse cx="23" cy="94" rx="7" ry="4" fill="#0f0f1a"/>
+
+        {/* Body */}
+        <ellipse cx="35" cy="68" rx="22" ry="18" fill="#0f0f1a"/>
+        <ellipse cx="35" cy="65" rx="16" ry="13" fill="#1e1e3a" opacity="0.5"/>
+
+        {/* Neck fluff */}
+        <ellipse cx="50" cy="55" rx="14" ry="10" fill="#161626"/>
+
+        {/* Front leg */}
+        <rect x="44" y="72" width="10" height="22" rx="5" fill="#0f0f1a"
+          style={{ animation: phase === 0 ? 'legSwingFront 0.4s ease-in-out infinite' : 'none', transformOrigin: '49px 72px' }}/>
+        <ellipse cx="49" cy="94" rx="7" ry="4" fill="#0f0f1a"/>
+
+        {/* Head */}
+        <ellipse cx="55" cy="40" rx="18" ry="16" fill="#0f0f1a"/>
+
+        {/* Ear */}
+        <polygon points="48,28 53,14 60,28" fill="#0f0f1a"
+          style={{ animation: phase === 0 ? 'earFlap 0.4s ease-in-out infinite' : 'none', transformOrigin: '54px 28px' }}/>
+        <polygon points="50,28 53,18 58,28" fill="#2d1b4e" opacity="0.7"/>
+        {/* Ear tip */}
+        <line x1="53" y1="14" x2="51" y2="9" stroke="#94a3b8" strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/>
+
+        {/* Eyes - side view */}
+        {phase < 2
+          ? <ellipse cx="64" cy="38" rx="5" ry="4.5" fill="#f5a623"/>
+          : <path d="M60 38 Q64 33 68 38" stroke="#f5a623" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+        }
+        {phase < 2 && <ellipse cx="64" cy="38" rx="3" ry="3" fill="#7c3aed"/>}
+        {phase < 2 && <ellipse cx="64" cy="38" rx="1.5" ry="2" fill="#1a0a2e"/>}
+        {phase < 2 && <ellipse cx="62.5" cy="36.5" rx="1" ry="0.9" fill="white" opacity="0.9"/>}
+
+        {/* Nose */}
+        <ellipse cx="71" cy="43" rx="4" ry="3" fill="#c084a0"/>
+
+        {/* Whiskers */}
+        <line x1="72" y1="42" x2="80" y2="40" stroke="#e2e8f0" strokeWidth="1" opacity="0.6"/>
+        <line x1="72" y1="44" x2="80" y2="44" stroke="#e2e8f0" strokeWidth="1" opacity="0.6"/>
+
+        {/* Mouth */}
+        {phase === 2
+          ? <path d="M67 47 Q70 51 73 47" stroke="#9d4e6f" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+          : <path d="M68 47 Q70 45 72 47" stroke="#9d4e6f" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+        }
+
+        {/* Dizzy stars when clumsy */}
+        {phase === 1 && ['⭐','💫','✦'].map((s, i) => (
+          <text key={i} x={55+i*8} y={22+i*5} fontSize="10" fill="#ffd700" opacity="0.9"
+            style={{ animation: `victoryJump 0.5s ease-in-out infinite`, animationDelay: `${i*0.15}s` }}>
+            {s}
+          </text>
+        ))}
+
+        {/* Victory effect */}
+        {phase === 2 && <text x="65" y="20" fontSize="16" textAnchor="middle">🏆</text>}
+
+        {/* Fur static spikes when zapped */}
+        {phase === 1 && categoryId === 'powergrid' && [0,1,2,3,4].map(i => (
+          <line key={i}
+            x1={28+i*6} y1={52} x2={26+i*6} y2={44}
+            stroke="#eab308" strokeWidth="2" strokeLinecap="round" opacity="0.8"/>
+        ))}
+      </g>
+    </svg>
+  )
+}
+
+// ===== SHIRO SIDE VIEW =====
+function ShiroSideView({ phase, categoryId }) {
+  const bodyAnim = {
+    0: 'bodyBobShiro 0.35s ease-in-out infinite',
+    1: {
+      drainage: 'fallInHole 0.8s ease-in forwards',
+      streetlight: 'getZapped 0.5s ease-in-out infinite',
+      waterleak: 'slip 0.8s ease-in forwards',
+      powergrid: 'powerShake 0.12s linear infinite',
+      other: 'confusedSpinShiro 1s ease-in-out infinite',
+    }[categoryId] || 'confusedSpinShiro 1s ease-in-out infinite',
+    2: 'victoryJumpShiro 0.5s ease-in-out infinite',
+  }[phase]
+
+  return (
+    <svg width="90" height="100" viewBox="0 0 90 100" style={{ overflow: 'visible' }}>
+      <style>{`
+        @keyframes bodyBobShiro { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+        @keyframes confusedSpinShiro { 0%,100%{transform:rotate(0)} 30%{transform:rotate(-10deg)} 70%{transform:rotate(10deg)} }
+        @keyframes victoryJumpShiro { 0%,100%{transform:translateY(0) scale(1)} 40%{transform:translateY(-25px) scale(1.1)} 70%{transform:translateY(-12px) scale(1.05)} }
+        @keyframes labTailWag { 0%,100%{transform:rotate(-35deg)} 50%{transform:rotate(35deg)} }
+        @keyframes labLegFront { 0%,100%{transform:rotate(-18deg)} 50%{transform:rotate(18deg)} }
+        @keyframes labLegBack { 0%,100%{transform:rotate(18deg)} 50%{transform:rotate(-18deg)} }
+        @keyframes labEarFlap { 0%,100%{transform:rotate(0deg) scaleY(1)} 50%{transform:rotate(-5deg) scaleY(0.95)} }
+      `}</style>
+
+      <g style={{ animation: bodyAnim, transformOrigin: '45px 78px' }}>
+        {/* Tail - happy lab tail, held high */}
+        <path d="M18 62 Q8 44 14 28" stroke="#f0ece4" strokeWidth="9" fill="none" strokeLinecap="round"
+          style={{ animation: phase === 0 ? 'labTailWag 0.35s ease-in-out infinite' : phase === 2 ? 'labTailWag 0.2s ease-in-out infinite' : 'none', transformOrigin: '18px 62px' }}/>
+        <path d="M18 62 Q8 44 14 28" stroke="#e8e0d0" strokeWidth="5" fill="none" strokeLinecap="round" opacity="0.5"/>
+
+        {/* Back leg */}
+        <rect x="20" y="74" width="12" height="20" rx="6" fill="#f0ece4"
+          style={{ animation: phase === 0 ? 'labLegBack 0.35s ease-in-out infinite' : 'none', transformOrigin: '26px 74px' }}/>
+        <ellipse cx="26" cy="94" rx="8" ry="5" fill="#e8e0cc"/>
+
+        {/* Body - stocky lab body */}
+        <rect x="18" y="56" width="46" height="28" rx="12" fill="#f4f0e8"/>
+        <ellipse cx="41" cy="56" rx="23" ry="11" fill="#f4f0e8"/>
+        <ellipse cx="41" cy="84" rx="23" ry="9" fill="#f4f0e8"/>
+        {/* Body highlight */}
+        <ellipse cx="30" cy="62" rx="7" ry="10" fill="white" opacity="0.35" transform="rotate(-10 30 62)"/>
+
+        {/* Collar */}
+        <rect x="50" y="52" width="18" height="7" rx="3.5" fill="#1e3a5f"/>
+        <rect x="51" y="53" width="16" height="5" rx="2.5" fill="#3b82f6" opacity="0.8"/>
+        <circle cx="59" cy="56" r="2.5" fill="#fbbf24"/>
+
+        {/* Front leg */}
+        <rect x="52" y="74" width="12" height="20" rx="6" fill="#f4f0e8"
+          style={{ animation: phase === 0 ? 'labLegFront 0.35s ease-in-out infinite' : 'none', transformOrigin: '58px 74px' }}/>
+        <ellipse cx="58" cy="94" rx="8" ry="5" fill="#e8e0cc"/>
+
+        {/* Head - broad lab head */}
+        <ellipse cx="68" cy="42" rx="18" ry="16" fill="#f4f0e8"/>
+        {/* Head highlight */}
+        <ellipse cx="62" cy="34" rx="7" ry="6" fill="white" opacity="0.4"/>
+
+        {/* Floppy ear */}
+        <ellipse cx="60" cy="40" rx="8" ry="14" fill="#ddd0b8" transform="rotate(10 60 40)"
+          style={{ animation: phase === 0 ? 'labEarFlap 0.35s ease-in-out infinite' : 'none', transformOrigin: '60px 32px' }}/>
+        <ellipse cx="60" cy="40" rx="5" ry="10" fill="#c8bca0" opacity="0.5" transform="rotate(10 60 40)"/>
+
+        {/* Muzzle */}
+        <rect x="72" y="44" width="16" height="12" rx="6" fill="#e8e0cc"/>
+        <ellipse cx="80" cy="44" rx="8" ry="5" fill="#ede8dc"/>
+
+        {/* Eye */}
+        {phase < 2
+          ? <ellipse cx="74" cy="38" rx="5.5" ry="5" fill="#7a4a1e"/>
+          : <path d="M70 38 Q74 32 78 38" stroke="#c8822a" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+        }
+        {phase < 2 && <ellipse cx="74" cy="38" rx="3.5" ry="3.5" fill="#c8822a"/>}
+        {phase < 2 && <ellipse cx="74" cy="38" rx="2" ry="2.5" fill="#1a0a00"/>}
+        {phase < 2 && <ellipse cx="72.5" cy="36.5" rx="1.3" ry="1.2" fill="white" opacity="0.95"/>}
+
+        {/* Nose */}
+        <ellipse cx="85" cy="49" rx="4.5" ry="3.5" fill="#1a1a1a"/>
+        <ellipse cx="83.5" cy="47.5" rx="1.5" ry="1" fill="white" opacity="0.4"/>
+
+        {/* Mouth */}
+        {phase === 2
+          ? <path d="M80 53 Q84 57 87 53" stroke="#e8a0a0" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+          : <path d="M80 53 Q83 51 86 53" stroke="#e8a0a0" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+        }
+
+        {/* Dizzy stars */}
+        {phase === 1 && ['⭐','💫','✦'].map((s, i) => (
+          <text key={i} x={62+i*9} y={22+i*5} fontSize="11" fill="#ffd700" opacity="0.9"
+            style={{ animation: `victoryJumpShiro 0.4s ease-in-out infinite`, animationDelay: `${i*0.15}s` }}>
+            {s}
+          </text>
+        ))}
+
+        {/* Victory */}
+        {phase === 2 && <text x="72" y="18" fontSize="16" textAnchor="middle">🏆</text>}
+
+        {/* Fur static */}
+        {phase === 1 && categoryId === 'powergrid' && [0,1,2,3,4,5].map(i => (
+          <line key={i}
+            x1={22+i*5} y1={55} x2={20+i*5} y2={47}
+            stroke="#eab308" strokeWidth="2" strokeLinecap="round" opacity="0.8"/>
+        ))}
+      </g>
+    </svg>
+  )
+}
 // ===================== COMPANION SELECT =====================
 function CompanionSelect({ onSelect }) {
   const [hovered, setHovered] = useState(null)
@@ -406,8 +937,8 @@ function CompanionSelect({ onSelect }) {
 
       <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', justifyContent: 'center' }}>
         {[
-          { id: 'lux', name: 'Lux', type: 'Maine Coon Cat', desc: 'Graceful & precise', color: '#22d3ee' },
-          { id: 'vex', name: 'Vex', type: 'Labrador', desc: 'Energetic & loyal', color: '#f59e0b' },
+          { id: 'kuro', name: 'Kuro', type: 'Black Maine Coon', desc: 'Dark, mysterious & precise', color: '#22d3ee' },
+          { id: 'shiro', name: 'Shiro', type: 'White White White Labrador', desc: 'Bright, noble & loyal', color: '#f59e0b' },
         ].map(c => (
           <button
             key={c.id}
@@ -425,8 +956,8 @@ function CompanionSelect({ onSelect }) {
               minWidth: '180px',
             }}
           >
-            <div style={{ animation: 'floatUp 3s ease-in-out infinite', animationDelay: c.id === 'vex' ? '1.5s' : '0s' }}>
-              {c.id === 'lux' ? <LuxSVG mood="idle" level={1} /> : <VexSVG mood="idle" level={1} />}
+            <div style={{ animation: 'floatUp 3s ease-in-out infinite', animationDelay: c.id === 'shiro' ? '1.5s' : '0s' }}>
+              {c.id === 'kuro' ? <KuroSVG mood="idle" level={1} /> : <ShiroSVG mood="idle" level={1} />}
             </div>
             <p style={{ fontSize: '22px', fontWeight: '800', margin: '8px 0 4px', color: c.color }}>{c.name}</p>
             <p style={{ fontSize: '13px', color: '#94a3b8', margin: 0 }}>{c.type}</p>
@@ -477,8 +1008,8 @@ function XPBar({ xp, compact = false }) {
 // ===================== DASHBOARD SCREEN =====================
 function DashboardScreen({ companion, xp, reports, darkMode }) {
   const level = getLevel(xp)
-  const CompComponent = companion === 'lux' ? LuxSVG : VexSVG
-  const name = companion === 'lux' ? 'Lux' : 'Vex'
+  const CompComponent = companion === 'kuro' ? KuroSVG : ShiroSVG
+  const name = companion === 'kuro' ? 'Kuro' : 'Shiro'
 
   const mockIssues = [
     { id: 1, label: 'Water Leak', loc: 'Anna Nagar', votes: 3, status: 'unverified' },
@@ -665,8 +1196,8 @@ City: "Chennai, Tamil Nadu"`
   const borderColor = darkMode ? '#1e293b' : '#e2e8f0'
   const severityColor = { LOW: '#22c55e', MEDIUM: '#f59e0b', HIGH: '#f97316', CRITICAL: '#ef4444' }
   const level = getLevel(xp)
-  const CompComponent = companion === 'lux' ? LuxSVG : VexSVG
-  const companionName = companion === 'lux' ? 'Lux' : 'Vex'
+  const CompComponent = companion === 'kuro' ? KuroSVG : ShiroSVG
+  const companionName = companion === 'kuro' ? 'Kuro' : 'Shiro'
 
   if (screen === 'companion') return <CompanionSelect onSelect={handleCompanionSelect} />
 
@@ -710,7 +1241,7 @@ City: "Chennai, Tamil Nadu"`
       </nav>
 
       {/* Loading */}
-      {loading && <LoadingScreen category={selectedCategory} companion={companion} />}
+      {loading && <WalkingLoadingScreen category={selectedCategory} companion={companion} />}
 
       {/* Landing */}
       {screen === 'landing' && !loading && (
